@@ -15,13 +15,16 @@ import {getMovies} from './api';
 let makeMovies = () => {
     getMovies().then((movies) => {
         // console.log('Here are all the movies:');
-        document.querySelector(".container").innerHTML = "<ul id='movies'></ul>"
+        document.querySelector(".container").innerHTML = "<ul class='list-group' id='movies'></ul>"
         document.querySelector("#current-movie").innerHTML = "<option id='first-option'>Select a movie</option>"
+        document.querySelector("#mcurtain").removeAttribute('checked')
+        document.querySelector('#mcurtain').setAttribute("value","off")
         movies.forEach(({title, rating, id}) => {
 
             // creates and shows the current movie db
             let list = document.createElement('li');
-            let currentMovie = document.createTextNode(`Title:${title} Rating:${rating}`);
+            list.classList.add('list-group-item')
+            let currentMovie = document.createTextNode(`Title: ${title} / Rating: ${rating}`);
             list.appendChild(currentMovie);
             document.querySelector('#movies').appendChild(list);
 

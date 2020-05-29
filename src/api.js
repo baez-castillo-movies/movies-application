@@ -7,7 +7,7 @@
 
 
 const getMovies = () => {
-  document.querySelector('.container').append('loading...');
+  document.querySelector('#mcurtain').setAttribute("checked","");
   return fetch('/api/movies')
     .then(response => response.json());
 };
