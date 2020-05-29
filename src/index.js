@@ -15,26 +15,18 @@ import {getMovies} from './api';
 let makeMovies = () => {
     getMovies().then((movies) => {
         // console.log('Here are all the movies:');
-        document.querySelector(".container").innerHTML = "<ul class='list-group' id='movies'></ul>"
+        document.querySelector(".container").innerHTML = "<div class='d-flex flex-wrap' id='movies'></div>"
         document.querySelector("#current-movie").innerHTML = "<option id='first-option'>Select a movie</option>"
         document.querySelector("#mcurtain").removeAttribute('checked')
         document.querySelector('#mcurtain').setAttribute("value","off")
-        movies.forEach(({title, rating, id}) => {
-
-            // creates and shows the current movie db
-            let list = document.createElement('li');
-            list.classList.add('list-group-item')
-            let currentMovie = document.createTextNode(`Title: ${title} / Rating: ${rating}`);
-            list.appendChild(currentMovie);
-            document.querySelector('#movies').appendChild(list);
-
-            // populates the dropdown with the current movies in the db
-            let dropdown = document.createElement("option");
-            let currentDropdown = document.createTextNode(`${title}`);
-            dropdown.appendChild(currentDropdown);
-            document.querySelector("#current-movie").appendChild(dropdown);
-
-        });
+        for (let i = 0; i < movies.length; i++) {
+            $("#movies").append(`<div class='card m-2 text-center card-width' id='${movies[i].id}'>
+                                <div class="card-body text-wrap">
+                                <h5>${movies[i].title}</h5>
+                                <p class="card-text">Rating: ${movies[i].rating}</p>
+                                <button type="button" class="delete-btn btn btn-danger">Delete</button></div></div>`)
+            $("#current-movie").append(`<option>${movies[i].title}</option>`)
+        };
     }).catch((error) => {
         alert('Oh no! Something went wrong.\nCheck the console for details.')
         console.log(error);
@@ -94,41 +86,17 @@ document.querySelector('#edit-movie-btn').addEventListener("click", function (e)
         }),
         headers: {"Content-Type": "application/json"}
     }).then().catch(error => console.log(error));
+    makeMovies();
 })
 
 
-// when this button is clicked the currently selected movie in the dropdown will be deleted from the db
-document.querySelector("#delete-movie-btn").addEventListener("click", function (e) {
-   e.preventDefault();
-   let dropdownIdValue = document.querySelector('#movie-id').innerHTML;
-   fetch(`/api/movies/${dropdownIdValue}`, {method: "DELETE"})
-       .then(response => response.json())
-       .then(movies => console.log(movies))
-       .catch(error => console.log(error))
+// delete buttons on the movies
+$(document).on("click", "button.delete-btn", function(e){
+    e.preventDefault();
+    let deleteMovieId = $(this).parent("div").parent("div").attr("id");
+    fetch(`/api/movies/${deleteMovieId}`, {method: "DELETE"})
+        .then(response => response.json())
+        .then(movies => console.log(movies))
+        .catch(error => console.log(error))
     makeMovies();
-});
-
-// this function updates the list and dropdown when there are changes to the db
-// let updatePage = () => {
-//     getMovies().then((movies) => {
-//         document.querySelector(".container").innerHTML = "<ul id='movies'></ul>"
-//         movies.forEach(({title, rating, id}) => {
-//
-//             // creates and shows the current movie db
-//             let list = document.createElement('li');
-//             let currentMovie = document.createTextNode(`Title:${title} Rating:${rating}`);
-//             list.appendChild(currentMovie);
-//             document.querySelector('#movies').appendChild(list);
-//
-//             // populates the dropdown with the current movies in the db
-//             let dropdown = document.createElement("option");
-//             let currentDropdown = document.createTextNode(`${title}`);
-//             if (currentDropdown !== title)
-//                 dropdown.appendChild(currentDropdown);
-//                 document.querySelector("#current-movie").appendChild(dropdown);
-//         });
-//     }).catch((error) => {
-//         alert('Oh no! Something went wrong.\nCheck the console for details.')
-//         console.log(error);
-//     });
-// }
+})
