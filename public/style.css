@@ -3,16 +3,18 @@ html, body {
 }
 
 .container {
-    position: relative;
-    top: 50%;
-    transform: translateY(-100%);
-    text-align: center;
+    /*text-align: center;*/
 }
 
 .curtain {
     width: 100%; /* Ensures the component is the full screen width */
     height: 100vh; /* We're using this for demo purposes */
     overflow: hidden; /* Allows us to slide the panels outside the container without them showing */
+}
+
+.card-width {
+    width: 12em;
+    height: 12em;
 }
 
 .curtain__wrapper {
@@ -48,8 +50,8 @@ html, body {
 input[type=checkbox] {
     position: absolute; /* Force the checkbox at the start of the container */
     cursor: pointer; /* Indicate the curtain is clickable */
-    width: 100%; /* The checkbox is as wide as the component */
-    height: 100%; /* The checkbox is as tall as the component */
+    width: 0%; /* The checkbox is as wide as the component */
+    height: 0%; /* The checkbox is as tall as the component */
     z-index: 100; /* Make sure the checkbox is on top of everything else */
     opacity: 0; /* Hide the checkbox */
 }/* When the checkbox is checked... */
