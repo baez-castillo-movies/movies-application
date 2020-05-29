@@ -3,32 +3,56 @@
     {
       "title": "Casablanca",
       "rating": "9",
+      "genre": "Romance",
       "id": 1
     },
     {
       "title": "Star Wars: A New Hope",
       "rating": "5",
+      "genre": "Sci-fi",
       "id": 2
     },
     {
-      "title": "zxvxzcvzxc",
-      "rating": "1",
+      "title": "test 5000",
+      "rating": "10",
+      "genre": "testtest",
       "id": 3
     },
     {
-      "title": "asgfsdag",
+      "title": "test",
       "rating": "1",
+      "genre": "movie",
       "id": 4
     },
     {
-      "title": "uiouioo",
+      "title": "test",
       "rating": "1",
+      "genre": "movie",
       "id": 5
     },
     {
-      "title": "bn,n,",
+      "title": "test",
       "rating": "1",
+      "genre": "movie",
       "id": 6
+    },
+    {
+      "title": "test",
+      "rating": "1",
+      "genre": "movie",
+      "id": 7
+    },
+    {
+      "title": "test",
+      "rating": "1",
+      "genre": "movie",
+      "id": 8
+    },
+    {
+      "title": "test",
+      "rating": "1",
+      "genre": "",
+      "id": 9
     }
   ]
 }

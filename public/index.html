@@ -13,10 +13,23 @@
 <!--        <h1>Hello There!</h1>-->
 <!--        <p>To get started, edit <code>src/index.js</code>.</p>-->
 <!--    </div>-->
+<h1 class="text-center">Movie Project</h1>
+<div class="curtain">
+    <div class="curtain__wrapper">
+        <input type="checkbox" id="mcurtain">
+        <div class="curtain__panel curtain__panel--left"></div>
+        <div class="curtain__prize">
+            <div class="container movie-parent"></div>
+        </div>
+        <div class="curtain__panel curtain__panel--right"></div>
+    </div>
+</div>
 
-<form>
+<form class="text-center">
     <label for="title">Please enter title</label>
     <input type="text" id="title" name="movieTitle">
+    <label for="genre">Enter Genre</label>
+    <input type="text" id="genre" name="movieGenre">
     <label for="rating">Rate the movie</label>
     <select id="rating">
         <option value="1">1</option>
@@ -30,9 +43,9 @@
         <option value="9">9</option>
         <option value="10">10</option>
     </select>
-    <button type="submit" id="movieBtn">Submit</button>
+    <button type="submit" id="movieBtn" class="btn btn-primary" disabled>Submit</button>
 </form>
-<form>
+<form class="mb-5 text-center">
     <label for="current-movie">Edit a movie</label>
     <select name="current-movie" id="current-movie">
         <option id="first-option">Select a movie</option>
@@ -40,6 +53,8 @@
     <span id="movie-id"></span>
     <label for="edited-title">Change the title</label>
     <input type="text" id="edited-title" name="edited-movie-title">
+    <label for="edit-genre">Change genre</label>
+    <input type="text" id="edit-genre" name="edited-genre">
     <label for="edit-rating">Change the rating</label>
     <select id="edit-rating">
         <option value="1">1</option>
@@ -53,19 +68,8 @@
         <option value="9">9</option>
         <option value="10">10</option>
     </select>
-    <button class="btn btn-primary" type="submit" id="edit-movie-btn">Submit</button>
+    <button class="btn btn-primary" type="submit" id="edit-movie-btn" disabled>Submit</button>
 </form>
-<div class="curtain">
-    <div class="curtain__wrapper">
-        <input type="checkbox" id="mcurtain">
-        <div class="curtain__panel curtain__panel--left"></div>
-            <div class="curtain__prize">
-                <div class="container"></div>
-            </div>
-        <div class="curtain__panel curtain__panel--right"></div>
-    </div>
-</div>
-
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
