@@ -15,7 +15,7 @@ import {getMovies} from './api';
 let makeMovies = () => {
     getMovies().then((movies) => {
         // console.log('Here are all the movies:');
-        document.querySelector(".container").innerHTML = "<div class='d-flex flex-wrap movies-back' id='movies'></div>"
+        document.querySelector(".container").innerHTML = "<div class='d-flex flex-wrap movies-back justify-content-center' id='movies'></div>"
         document.querySelector("#current-movie").innerHTML = "<option id='first-option'>Select a movie</option>"
         document.querySelector("#mcurtain").removeAttribute('checked')
         document.querySelector('#mcurtain').setAttribute("value","off")
